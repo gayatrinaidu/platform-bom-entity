@@ -6,12 +6,10 @@
  * For more details take a look at the Java Quickstart chapter in the Gradle
  * user guide available at https://docs.gradle.org/2.14/userguide/tutorial_java_projects.html
  */
- 
- buildscript {
-    repositories {
+
+repositories {
 		maven { url 'http://localhost:8880/archiva/repository/internal' }
 		maven { url 'http://localhost:8880/archiva/repository/snapshots' }
-	}
 }
 
 ext {
