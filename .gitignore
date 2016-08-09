@@ -3,3 +3,10 @@
 /build/
 /.classpath
 /.project
+/gradle/
+/build.gradle
+/gradle.properties
+/gradle.zip
+/gradlew
+/gradlew.bat
+/settings.gradle
