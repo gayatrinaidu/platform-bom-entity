@@ -190,7 +190,7 @@ public class Terminal implements Model {
 	@Override
 	public String toString() {
 		return "Terminal [id=" + id + ", terminalCode=" + terminalCode + ", status=" + status + ", version=" + version + ", createdDate=" + createdDate + ", updatedDate="
-				+ updatedDate + ", terminalType=" + terminalType + ", terminalDeviceMappings=" + terminalDeviceMappings + "]";
+				+ updatedDate + ", terminalType=" + terminalType + "]";
 	}
 
 	@Override
