@@ -9,6 +9,8 @@
 
 package com.platform.bom.domain;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.neo4j.annotation.EndNode;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.RelationshipEntity;
@@ -25,11 +27,10 @@ public class EntityRelation {
 	@GraphId
 	private Long id;
 
+	@NotNull
 	private String name;
 
 	private Multiplicity multiplicity;
-
-	private String endNodeVersion;
 
 	private boolean cascadeDelete;
 
@@ -62,12 +63,6 @@ public class EntityRelation {
 	}
 	public void setMultiplicity(Multiplicity multiplicity) {
 		this.multiplicity = multiplicity;
-	}
-	public String getEndNodeVersion() {
-		return endNodeVersion;
-	}
-	public void setEndNodeVersion(String endNodeVersion) {
-		this.endNodeVersion = endNodeVersion;
 	}
 	public boolean isCascadeDelete() {
 		return cascadeDelete;

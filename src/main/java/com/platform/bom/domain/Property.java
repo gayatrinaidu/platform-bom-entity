@@ -8,6 +8,9 @@
  */
 
 package com.platform.bom.domain;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 
 /**
@@ -17,10 +20,14 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  */
 @NodeEntity
 public class Property {
+
+	@GraphId
 	private Long id;
 
+	@NotNull
 	private String name;
 
+	@NotNull
 	private String type;
 
 	private boolean isUnique;
