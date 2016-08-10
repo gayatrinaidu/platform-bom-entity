@@ -1,5 +1,5 @@
 /**
- * Copyright © Altimetrik 2016. All rights reserved.
+ * Copyright Â© Altimetrik 2016. All rights reserved.
  *
  * This software is the confidential and proprietary information
  * of Altimetrik. You shall not disclose such Confidential Information
@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.data.neo4j.annotation.Fetch;
 import org.springframework.data.neo4j.annotation.GraphId;
+import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.RelatedToVia;
@@ -32,7 +33,7 @@ public class Terminal implements Model {
 
 	@GraphId
 	private Long id;
-	@NotNull
+	@Indexed(unique = true, failOnDuplicate = true)
 	private String terminalCode;
 	@NotNull
 	private Integer status;
