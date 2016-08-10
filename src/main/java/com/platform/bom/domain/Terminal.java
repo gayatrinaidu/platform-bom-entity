@@ -187,4 +187,28 @@ public class Terminal implements Model {
 		this.terminalDeviceMappings = terminalDeviceMappings;
 	}
 
+	@Override
+	public String toString() {
+		return "Terminal [id=" + id + ", terminalCode=" + terminalCode + ", status=" + status + ", version=" + version + ", createdDate=" + createdDate + ", updatedDate="
+				+ updatedDate + ", terminalType=" + terminalType + ", terminalDeviceMappings=" + terminalDeviceMappings + "]";
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		return this.id.equals(((Terminal) o).id);
+	}
+
+	@Override
+	public int hashCode() {
+		if (this.id != null)
+			return this.id.hashCode();
+		return super.hashCode();
+	}
+
 }
