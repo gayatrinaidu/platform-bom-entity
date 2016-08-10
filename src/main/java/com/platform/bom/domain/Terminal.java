@@ -1,5 +1,5 @@
 /**
- * Copyright © Altimetrik 2016. All rights reserved.
+ * Copyright Â© Altimetrik 2016. All rights reserved.
  *
  * This software is the confidential and proprietary information
  * of Altimetrik. You shall not disclose such Confidential Information
@@ -32,7 +32,7 @@ public class Terminal implements Model {
 
 	@GraphId
 	private Long id;
-	@NotNull
+	@Indexed(unique = true, failOnDuplicate = true)
 	private String terminalCode;
 	@NotNull
 	private Integer status;
