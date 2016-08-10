@@ -19,7 +19,9 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  *
  */
 @NodeEntity
-public class Property {
+public class Property implements Model {
+
+	private static final long serialVersionUID = 7227953059801973548L;
 
 	@GraphId
 	private Long id;

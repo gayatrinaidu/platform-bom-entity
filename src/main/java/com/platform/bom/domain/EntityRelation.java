@@ -22,7 +22,9 @@ import org.springframework.data.neo4j.annotation.StartNode;
  *
  */
 @RelationshipEntity(type = "HAS_RELATION")
-public class EntityRelation {
+public class EntityRelation implements Model {
+
+	private static final long serialVersionUID = 7841730675397189710L;
 
 	@GraphId
 	private Long id;
