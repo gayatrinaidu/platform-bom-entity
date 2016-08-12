@@ -28,17 +28,12 @@ public class EntityRelation implements Model {
 
 	@GraphId
 	private Long id;
-
 	@NotNull
 	private String name;
-
 	private Multiplicity multiplicity;
-
 	private boolean cascadeDelete;
-
 	@StartNode
 	private EntityDefinition startEntityDef;
-
 	@EndNode
 	private EntityDefinition endEntityDef;
 

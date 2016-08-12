@@ -25,21 +25,14 @@ public class Property implements Model {
 
 	@GraphId
 	private Long id;
-
 	@NotNull
 	private String name;
-
 	@NotNull
 	private String type;
-
 	private boolean isUnique;
-
 	private boolean createIndex;
-
 	private boolean isMandatory;
-
 	private String validation; // validation for the value of this property
-
 	private String[] values; // possible values allowed for this property
 
 	public Property(String name, String type) {

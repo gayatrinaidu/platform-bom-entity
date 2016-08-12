@@ -29,23 +29,17 @@ public class EntityDefinition implements Model {
 
 	@GraphId
 	private Long id;
-
 	private boolean isAbstract;
-
 	@NotNull
 	private String name;
-
 	private String version;
-
+	private boolean processed;
 	@RelatedTo(type = "EXTENDS_FROM")
 	private Set<EntityDefinition> extendsFrom;
-
 	@RelatedTo(type = "HAS_METADATA")
 	private Set<Property> metaAttributes;
-
 	@RelatedTo(type = "HAS_ATTRIBUTE")
 	private Set<Property> attributes;
-
 	@RelatedTo(type = "HAS_RELATION")
 	private Set<EntityRelation> relations;
 
@@ -110,5 +104,13 @@ public class EntityDefinition implements Model {
 
 	public void setVersion(String version) {
 		this.version = version;
+	}
+
+	public boolean isProcessed() {
+		return processed;
+	}
+
+	public void setProcessed(boolean processed) {
+		this.processed = processed;
 	}
 }

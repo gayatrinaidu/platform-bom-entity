@@ -27,3 +27,4 @@ public enum Multiplicity {
 		return valueOf(v);
 	}
 }
+
