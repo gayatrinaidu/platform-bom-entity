@@ -8,8 +8,7 @@
  */
 
 repositories {
-	maven { url 'http://localhost:8880/archiva/repository/internal' }
-	maven { url 'http://localhost:8880/archiva/repository/snapshots' }
+	maven { url 'http://192.168.68.235:8881/archiva/repository/all' }
 }
 
 ext {
