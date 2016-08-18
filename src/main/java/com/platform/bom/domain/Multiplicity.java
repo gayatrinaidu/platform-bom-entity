@@ -8,6 +8,7 @@
  */
 
 package com.platform.bom.domain;
+
 /**
  * Class to define multiplicity of entity relations.
  * @author Gayatri Naidu.
@@ -19,12 +20,20 @@ public enum Multiplicity {
 	 */
 	ONE_TO_ONE, ONE_TO_MANY, MANY_TO_MANY;
 
+	/**
+	 * Value return.
+	 * @return String
+	 */
 	public String value() {
 		return name();
 	}
 
+	/**
+	 * Get Multiplicity.
+	 * @param v String
+	 * @return Multiplicity
+	 */
 	public static Multiplicity fromValue(String v) {
 		return valueOf(v);
 	}
 }
-
