@@ -8,6 +8,7 @@
  */
 
 package com.platform.bom.domain;
+
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.neo4j.annotation.GraphId;
@@ -35,26 +36,22 @@ public class Property implements Model {
 	private String validation; // validation for the value of this property
 	private String[] values; // possible values allowed for this property
 
-	public Property(String name, String type) {
-		super();
-		this.name = name;
-		this.type = type;
-	}
-	public Property() {
-		super();
-	}
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
+
 	public boolean isUnique() {
 		return isUnique;
 	}
@@ -66,30 +63,39 @@ public class Property implements Model {
 	public boolean isCreateIndex() {
 		return createIndex;
 	}
+
 	public void setCreateIndex(boolean createIndex) {
 		this.createIndex = createIndex;
 	}
+
 	public boolean isMandatory() {
 		return isMandatory;
 	}
+
 	public void setMandatory(boolean isMandatory) {
 		this.isMandatory = isMandatory;
 	}
+
 	public String getValidation() {
 		return validation;
 	}
+
 	public void setValidation(String validation) {
 		this.validation = validation;
 	}
+
 	public String[] getValues() {
 		return values;
 	}
+
 	public void setValues(String[] values) {
 		this.values = values;
 	}
+
 	public Long getId() {
 		return id;
 	}
+
 	public void setId(Long id) {
 		this.id = id;
 	}
