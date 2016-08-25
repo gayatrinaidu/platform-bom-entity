@@ -40,8 +40,9 @@ public class EntityDefinition implements Model {
 	private Set<Property> metaAttributes;
 	@RelatedTo(type = "HAS_ATTRIBUTE")
 	private Set<Property> attributes;
-	@RelatedTo(type = "HAS_RELATION")
+	@RelatedToVia(type = "HAS_RELATION")
 	private Set<EntityRelation> relations;
+	private ProcessingStatus processingStatus;
 
 	public Long getId() {
 		return id;
@@ -113,4 +114,13 @@ public class EntityDefinition implements Model {
 	public void setProcessed(boolean processed) {
 		this.processed = processed;
 	}
+
+	public ProcessingStatus getProcessingStatus() {
+		return processingStatus;
+	}
+
+	public void setProcessingStatus(ProcessingStatus processingStatus) {
+		this.processingStatus = processingStatus;
+	}
+
 }
