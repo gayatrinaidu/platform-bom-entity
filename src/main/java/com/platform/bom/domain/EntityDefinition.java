@@ -40,7 +40,7 @@ public class EntityDefinition implements Model {
 	private Set<Property> metaAttributes;
 	@RelatedTo(type = "HAS_ATTRIBUTE")
 	private Set<Property> attributes;
-	@RelatedTo(type = "HAS_RELATION")
+	@RelatedToVia(type = "HAS_RELATION")
 	private Set<EntityRelation> relations;
 	private ProcessingStatus processingStatus;
 
