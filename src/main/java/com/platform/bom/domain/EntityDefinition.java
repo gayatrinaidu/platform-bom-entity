@@ -16,6 +16,7 @@ import javax.validation.constraints.NotNull;
 import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
+import org.springframework.data.neo4j.annotation.RelatedToVia;
 
 /**
  * Class that describes an entity definition.
