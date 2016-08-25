@@ -17,3 +17,5 @@ include 'services:webservice'
 */
 
 rootProject.name = 'platform-bom-entity'
+include ':platform-bom-base'
+project(':platform-bom-base').projectDir = new File(settingsDir, '../platform-bom-base')
