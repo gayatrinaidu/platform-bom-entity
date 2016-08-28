@@ -9,9 +9,10 @@
 
 package com.platform.bom.domain;
 
+import java.util.Arrays;
+
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 
 /**
@@ -20,12 +21,10 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  *
  */
 @NodeEntity
-public class Property implements Model {
+public class Property extends Entity {
 
 	private static final long serialVersionUID = 7227953059801973548L;
 
-	@GraphId
-	private Long id;
 	@NotNull
 	private String name;
 	@NotNull
@@ -92,11 +91,10 @@ public class Property implements Model {
 		this.values = values;
 	}
 
-	public Long getId() {
-		return id;
+	@Override
+	public String toString() {
+		return "Property [name=" + name + ", type=" + type + ", isUnique=" + isUnique + ", createIndex=" + createIndex + ", isMandatory=" + isMandatory + ", validation="
+				+ validation + ", values=" + Arrays.toString(values) + "]";
 	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
 }

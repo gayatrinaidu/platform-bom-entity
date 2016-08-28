@@ -14,7 +14,6 @@ import java.util.Date;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.neo4j.annotation.Fetch;
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
@@ -24,12 +23,10 @@ import org.springframework.data.neo4j.annotation.RelatedTo;
  * @author Harish Mangala
  */
 @NodeEntity
-public class Device implements Model {
+public class Device extends Entity {
 
 	private static final long serialVersionUID = -1842980174598406911L;
 
-	@GraphId
-	private Long id;
 	@NotNull
 	private String deviceCode;
 	@Indexed(unique = true, failOnDuplicate = true)
@@ -49,21 +46,6 @@ public class Device implements Model {
 	@Fetch
 	private DeviceType deviceType;
 
-	/**
-	 * Get the device Id.
-	 * @return id
-	 */
-	public Long getId() {
-		return this.id;
-	}
-
-	/**
-	 * Set the Device Id.
-	 * @param id value
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * Gets the device code.

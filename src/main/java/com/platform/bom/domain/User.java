@@ -9,7 +9,6 @@
 
 package com.platform.bom.domain;
 
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 
 /**
@@ -17,11 +16,9 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  * @author Harish Mangala
  */
 @NodeEntity
-public class User implements Model {
+public class User extends Entity {
 	private static final long serialVersionUID = -8628859801579198781L;
 
-	@GraphId
-	private Long id;
 	private String firstName;
 	private String lastName;
 
@@ -57,41 +54,9 @@ public class User implements Model {
 		this.lastName = lastName;
 	}
 
-	/**
-	 * Return id.
-	 * @return id
-	 */
-	public Long getId() {
-		return id;
-	}
-
-	/**
-	 * Set User id.
-	 * @param id new id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		return this.id.equals(((User) o).id);
-	}
-
-	@Override
-	public int hashCode() {
-		return this.id.hashCode();
 	}
 
 }

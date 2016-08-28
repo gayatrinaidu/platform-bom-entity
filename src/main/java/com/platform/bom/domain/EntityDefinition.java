@@ -13,7 +13,6 @@ import java.util.Set;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
 import org.springframework.data.neo4j.annotation.RelatedToVia;
@@ -24,12 +23,10 @@ import org.springframework.data.neo4j.annotation.RelatedToVia;
  *
  */
 @NodeEntity
-public class EntityDefinition implements Model {
+public class EntityDefinition extends Entity {
 
 	private static final long serialVersionUID = -8090741868229864507L;
 
-	@GraphId
-	private Long id;
 	private boolean isAbstract;
 	@NotNull
 	private String name;
@@ -44,14 +41,6 @@ public class EntityDefinition implements Model {
 	@RelatedToVia(type = "HAS_RELATION")
 	private Set<EntityRelation> relations;
 	private ProcessingStatus processingStatus;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public boolean isAbstract() {
 		return isAbstract;
@@ -100,6 +89,7 @@ public class EntityDefinition implements Model {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getVersion() {
 		return version;
 	}
@@ -122,6 +112,12 @@ public class EntityDefinition implements Model {
 
 	public void setProcessingStatus(ProcessingStatus processingStatus) {
 		this.processingStatus = processingStatus;
+	}
+
+	@Override
+	public String toString() {
+		return "EntityDefinition [isAbstract=" + isAbstract + ", name=" + name + ", version=" + version + ", processed=" + processed + ", extendsFrom=" + extendsFrom
+				+ ", metaAttributes=" + metaAttributes + ", attributes=" + attributes + ", relations=" + relations + ", processingStatus=" + processingStatus + "]";
 	}
 
 }
