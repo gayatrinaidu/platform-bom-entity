@@ -15,7 +15,6 @@ import java.util.Set;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.neo4j.annotation.Fetch;
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 import org.springframework.data.neo4j.annotation.RelatedTo;
@@ -26,13 +25,11 @@ import org.springframework.data.neo4j.annotation.RelatedToVia;
  * @author Harish Mangala
  */
 @NodeEntity
-public class Terminal implements Model {
+public class Terminal extends Entity {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -1578752139764808188L;
 
-	@GraphId
-	private Long id;
 	@Indexed(unique = true, failOnDuplicate = true)
 	private String terminalCode;
 	@NotNull
@@ -47,19 +44,6 @@ public class Terminal implements Model {
 	private TerminalType terminalType;
 	@RelatedToVia(type = "MAPPED_TO")
 	private Set<TerminalDeviceMapping> terminalDeviceMappings;
-
-	public Long getId() {
-		return this.id;
-	}
-
-	/**
-	 * Sets the terminal id.
-	 *
-	 * @param id the new terminal id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * Gets the terminal code.
@@ -191,25 +175,6 @@ public class Terminal implements Model {
 	public String toString() {
 		return "Terminal [id=" + id + ", terminalCode=" + terminalCode + ", status=" + status + ", version=" + version + ", createdDate=" + createdDate + ", updatedDate="
 				+ updatedDate + ", terminalType=" + terminalType + "]";
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		if (this == o) {
-			return true;
-		}
-		if (o == null || getClass() != o.getClass()) {
-			return false;
-		}
-		return this.id.equals(((Terminal) o).id);
-	}
-
-	@Override
-	public int hashCode() {
-		if (this.id != null) {
-			return this.id.hashCode();
-		}
-		return super.hashCode();
 	}
 
 }

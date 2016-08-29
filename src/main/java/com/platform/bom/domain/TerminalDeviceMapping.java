@@ -13,7 +13,6 @@ import java.util.Date;
 
 import org.springframework.data.neo4j.annotation.EndNode;
 import org.springframework.data.neo4j.annotation.Fetch;
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.RelationshipEntity;
 import org.springframework.data.neo4j.annotation.StartNode;
 
@@ -22,11 +21,9 @@ import org.springframework.data.neo4j.annotation.StartNode;
  * @author Harish Mangala
  */
 @RelationshipEntity(type = "MAPPED_TO")
-public class TerminalDeviceMapping implements Model {
+public class TerminalDeviceMapping extends Entity {
 	private static final long serialVersionUID = -4532159493259347623L;
 
-	@GraphId
-	private Long id;
 	private Date createdDate;
 	@StartNode
 	@Fetch
@@ -34,23 +31,6 @@ public class TerminalDeviceMapping implements Model {
 	@EndNode
 	@Fetch
 	private Device device;
-
-	/**
-	 * Return id.
-	 * @return id
-	 */
-	public Long getId() {
-		return this.id;
-	}
-
-	/**
-	 * Set Id.
-	 *
-	 * @param id new id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * Return Device.

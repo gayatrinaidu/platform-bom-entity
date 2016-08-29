@@ -12,7 +12,6 @@ package com.platform.bom.domain;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.neo4j.annotation.EndNode;
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.RelationshipEntity;
 import org.springframework.data.neo4j.annotation.StartNode;
 
@@ -22,12 +21,10 @@ import org.springframework.data.neo4j.annotation.StartNode;
  *
  */
 @RelationshipEntity(type = "HAS_RELATION")
-public class EntityRelation implements Model {
+public class EntityRelation extends Entity {
 
 	private static final long serialVersionUID = 7841730675397189710L;
 
-	@GraphId
-	private Long id;
 	@NotNull
 	private String name;
 	private Multiplicity multiplicity;
@@ -40,37 +37,46 @@ public class EntityRelation implements Model {
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public EntityDefinition getStartEntityDef() {
 		return startEntityDef;
 	}
+
 	public void setStartEntityDef(EntityDefinition startEntityDef) {
 		this.startEntityDef = startEntityDef;
 	}
+
 	public EntityDefinition getEndEntityDef() {
 		return endEntityDef;
 	}
+
 	public void setEndEntityDef(EntityDefinition endEntityDef) {
 		this.endEntityDef = endEntityDef;
 	}
+
 	public Multiplicity getMultiplicity() {
 		return multiplicity;
 	}
+
 	public void setMultiplicity(Multiplicity multiplicity) {
 		this.multiplicity = multiplicity;
 	}
+
 	public boolean isCascadeDelete() {
 		return cascadeDelete;
 	}
+
 	public void setCascadeDelete(boolean cascadeDelete) {
 		this.cascadeDelete = cascadeDelete;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
+
+	@Override
+	public String toString() {
+		return "EntityRelation [name=" + name + ", multiplicity=" + multiplicity + ", cascadeDelete=" + cascadeDelete + ", startEntityDef=" + startEntityDef + ", endEntityDef="
+				+ endEntityDef + "]";
 	}
 }

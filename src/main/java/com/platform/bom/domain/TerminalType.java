@@ -13,7 +13,6 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import org.springframework.data.neo4j.annotation.GraphId;
 import org.springframework.data.neo4j.annotation.Indexed;
 import org.springframework.data.neo4j.annotation.NodeEntity;
 
@@ -23,33 +22,15 @@ import org.springframework.data.neo4j.annotation.NodeEntity;
  *
  */
 @NodeEntity
-public class TerminalType implements Model {
+public class TerminalType extends Entity {
 
 	// The Constant serialVersionUID.
 	private static final long serialVersionUID = -5332607030597094235L;
 
-	@GraphId
-	private Long id;
 	@Indexed(unique = true, failOnDuplicate = true)
 	private String terminalTypeName;
 	@NotNull
 	private Date createdDate;
-
-	/**
-	 * Return Terminal type id.
-	 * @return id
-	 */
-	public Long getId() {
-		return this.id;
-	}
-
-	/**
-	 * Set Terminal type id.
-	 * @param id new Terminal type id
-	 */
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	/**
 	 * Return Terminal Type Name.
